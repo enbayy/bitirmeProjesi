@@ -2,7 +2,7 @@ import Navbar from "./components/navbar";
 import "./globals.css";
 
 export const metadata = {
-  title: "My Next.js App",
+  title: "rumaydin",
   description: "A clean start for your Next.js project",
 };
 
