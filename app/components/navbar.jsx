@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { FiMenu, FiX } from 'react-icons/fi';
+import { BiLogoTux } from "react-icons/bi";
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,28 +17,43 @@ const Navbar = () => {
                 >
                     {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
                 </button>
-                <ul className="hidden md:flex gap-x-10 text-white">
-                    <li>
-                        {/* Logo */}
-                    </li>
+                <ul className="hidden md:flex gap-x-28 text-white">
                     <li>
                         <Link href="/">
-                            Home
+                            Anasayfa
                         </Link>
                     </li>
                     <li>
+                        <Link href="/pages/productPage">
+                            Ürünler
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="/pages/artistsPage">
+                            Sanatçılar
+                        </Link>
+                    </li>
+                    <li>
+                        <BiLogoTux className="size-6" />
+                    </li>
+                    {/* <li>
                         <Link href="/pages/aboutPage">
                             About
                         </Link>
-                    </li>
+                    </li> */}
                     <li>
-                        <Link href="/pages/servicesPage">
-                            Services
+                        <Link href="/pages/libraryPage">
+                            Kütüphane
                         </Link>
                     </li>
                     <li>
                         <Link href="/pages/contactPage">
-                            Contact
+                            İletişim
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="/pages/loginPage">
+                            Giriş Yap
                         </Link>
                     </li>
                 </ul>
