@@ -4,9 +4,21 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { FiMenu, FiX } from 'react-icons/fi';
 import { BiLogoTux } from "react-icons/bi";
+import { auth } from "../Firebase";
+import { signOut } from "firebase/auth";
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const logout = async () => {
+        try {
+            await signOut(auth);
+            window.location.href = 'pages/loginPage';
+            console.log("çıkış yapıldı")
+        } catch {
+            console.log(error.message)
+        }
+    }
 
     return (
         <div className="w-full h-14 bg-neutral-900 sticky top-0">
@@ -55,6 +67,11 @@ const Navbar = () => {
                         <Link href="/pages/loginPage">
                             Giriş Yap
                         </Link>
+                    </li>
+                    <li>
+                        <button onClick={logout}>
+                            Çıkış Yap
+                        </button>
                     </li>
                 </ul>
             </nav>

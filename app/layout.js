@@ -1,3 +1,4 @@
+import { ToastContainer } from "react-toastify";
 import Footer from "./components/footer";
 import Navbar from "./components/navbar";
 import "./globals.css";
@@ -8,7 +9,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  
+
   return (
     <html lang="en">
       <body className="min-h-screen flex flex-col">
