@@ -10,26 +10,27 @@ export default function Home() {
 
   const handleAdd = async ({ name, value, subject, message }) => {
     try {
-      const res = await fetch('/api/data', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, value, subject, message }),
-      });
+        const res = await fetch('/api/data', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, value, subject, message }),
+        });
 
-      if (!res.ok) {
-        const errorText = await res.text();
-        console.error("Failed to add data:", errorText);
-        return;
-      }
+        if (!res.ok) {
+            const errorText = await res.text();
+            console.error("Failed to add data:", errorText);
+            return;
+        }
 
-      const result = await res.json();
-      setData([...data, result]);
-      setNotification("Form başarıyla gönderildi!");
-      setTimeout(() => setNotification(""), 3000);
+        const result = await res.json();
+        setData([...data, result]);
+        setNotification("Form başarıyla gönderildi!");
+        setTimeout(() => setNotification(""), 3000);
     } catch (error) {
-      console.error("Error occurred while adding data:", error);
+        console.error("Error occurred while adding data:", error);
     }
-  };
+};
+
 
   return (
     <div className="min-h-screen flex items-center justify-center">
