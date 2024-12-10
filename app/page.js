@@ -1,15 +1,16 @@
 import Link from "next/link";
 import React from "react";
 import Slider from "./slider";
+import "./globals.css";
 
 export default function Home() {
   return (
-    <div className="h-screen bg-[#9c7665]">
+    <div className="h-screen">
       <div className="flex justify-center items-center gap-x-10">
         <div className="flex flex-col justify-center items-center gap-y-5">
           <img
             src="/bg1.jpg"
-            className="w-52 h-52 rounded-lg mt-10"
+            className="w-92 h-52 rounded-lg mt-10"
             alt="" />
           <Link
             href="/"
@@ -20,7 +21,7 @@ export default function Home() {
         <div className="flex flex-col justify-center items-center gap-y-5">
           <img
             src="/bg2.jpg"
-            className="w-52 h-52 rounded-lg mt-10"
+            className="w-92 h-52 rounded-lg mt-10"
             alt="" />
           <Link
             href="/"
@@ -31,7 +32,7 @@ export default function Home() {
         <div className="flex flex-col justify-center items-center gap-y-5">
           <img
             src="/bg3.jpg"
-            className="w-52 h-52 rounded-lg mt-10"
+            className="w-92 h-52 rounded-lg mt-10"
             alt="" />
           <Link
             href="/"

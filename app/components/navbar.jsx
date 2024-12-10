@@ -21,7 +21,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className="w-full h-14 bg-neutral-900 sticky top-0">
+        <div className="w-full h-14 bg-black sticky top-0">
             <nav className="container mx-auto px-4 h-full flex justify-center items-center">
                 <button
                     className="md:hidden text-white"
@@ -45,9 +45,10 @@ const Navbar = () => {
                             Sanatçılar
                         </Link>
                     </li>
-                    <li>
-                        <BiLogoTux className="size-6" />
-                    </li>
+                    <Link href="/">
+                        <img src="/bg1.jpg" alt="" className="size-7" />
+                    </Link>
+
                     {/* <li>
                         <Link href="/pages/aboutPage">
                             About
