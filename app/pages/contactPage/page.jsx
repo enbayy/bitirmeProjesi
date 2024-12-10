@@ -1,4 +1,5 @@
 'use client'
+
 import { useState } from 'react';
 import ContactForm from '@/app/components/ContactForm';
 import "../../globals.css";
@@ -32,9 +33,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex items-center justify-center">
-      <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-2xl font-bold text-center mb-4 text-black">İletişim Formu</h1>
-
+      <div>
         {notification && (
           <div className="mb-4 p-2 text-green-700 bg-green-100 border border-green-400 rounded">
             {notification}
