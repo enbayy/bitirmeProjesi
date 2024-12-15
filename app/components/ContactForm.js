@@ -22,13 +22,14 @@ export default function ContactForm({ onSubmit, initialData = {} }) {
     };
 
     return (
-        <div className="flex flex-col justify-center items-center bg-[#ddc69d] text-[#4B2E2E] min-h-screen p-6">
-            <h1 className="text-4xl font-bold underline mb-6">İletişim</h1>
+        <div className="flex flex-col justify-center items-center text-[#4B2E2E] min-h-screen p-6">
+            <h1 className="text-4xl font-bold mb-6">İletişim</h1>
             <p className="text-center mb-6">
                 Bize ulaşmak için aşağıdaki formu doldurun veya iletişim bilgilerimizi kullanın.
             </p>
 
-            <form onSubmit={handleSubmit} className="w-full max-w-lg bg-white p-6 shadow-md rounded-lg space-y-4">
+            <form onSubmit={handleSubmit}
+                className="w-full max-w-lg bg-[#F4EDE4] p-6 shadow-md rounded-lg">
                 <div className="mb-4">
                     <input
                         type="text"
@@ -36,7 +37,7 @@ export default function ContactForm({ onSubmit, initialData = {} }) {
                         onChange={(e) => setName(e.target.value)}
                         placeholder="Ad Soyad"
                         required
-                        className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#4B2E2E] text-black"
+                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-[#4B2E2E] bg-[#F4EDE4]"
                     />
                 </div>
                 <div className="mb-4">
@@ -46,7 +47,7 @@ export default function ContactForm({ onSubmit, initialData = {} }) {
                         onChange={(e) => setValue(e.target.value)}
                         placeholder="E-mail"
                         required
-                        className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#4B2E2E] text-black"
+                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-[#4B2E2E] bg-[#F4EDE4]"
                     />
                 </div>
                 <div className="mb-4">
@@ -56,7 +57,7 @@ export default function ContactForm({ onSubmit, initialData = {} }) {
                         onChange={(e) => setSubject(e.target.value)}
                         placeholder="Konu"
                         required
-                        className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#4B2E2E] text-black"
+                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-[#4B2E2E] bg-[#F4EDE4]"
                     />
                 </div>
                 <div className="mb-4">
@@ -66,12 +67,12 @@ export default function ContactForm({ onSubmit, initialData = {} }) {
                         onChange={(e) => setMessage(e.target.value)}
                         placeholder="Mesaj"
                         required
-                        className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#4B2E2E] text-black"
+                        className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-[#4B2E2E] bg-[#F4EDE4]"
                     />
                 </div>
                 <button
                     type="submit"
-                    className="w-full py-2 bg-[#4B2E2E] text-white rounded-md hover:bg-[#3a2323] transition"
+                    className="w-full bg-[#4B2E2E] text-white py-3 rounded-md hover:bg-[#3a2323] transition"
                 >
                     Gönder
                 </button>

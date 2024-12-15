@@ -1,27 +1,27 @@
 'use client';
 
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../Firebase';
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { showErrorToast, showSuccessToast } from '@/app/utils/notifications';
 import { ToastContainer } from 'react-toastify';
 
-const LoginPage = () => {
+const RegisterPage = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const login = async (e) => {
+    const register = async (e) => {
         e.preventDefault();
         try {
-            const response = await signInWithEmailAndPassword(auth, email, password);
+            const response = await createUserWithEmailAndPassword(auth, email, password);
             const user = response.user;
             if (user) {
                 setEmail("");
                 setPassword("");
-                showSuccessToast("Giriş başarılı!");
+                showSuccessToast("Kayıt başarılı!");
                 setTimeout(() => {
-                    window.location.href = '/';
+                    window.location.href = '/loginPage';
                 }, 2000);
             }
         } catch (error) {
@@ -33,7 +33,7 @@ const LoginPage = () => {
         <div className="h-[95vh] flex justify-center items-center text-[#4B2E2E]">
             <ToastContainer />
             <form className="bg-[#F4EDE4] p-10 rounded-xl shadow-lg w-[400px]">
-                <h2 className="text-3xl font-semibold text-center mb-8">Giriş Yap</h2>
+                <h2 className="text-3xl font-semibold text-center mb-8">Kayıt Ol</h2>
                 <div className="flex flex-col mb-6">
                     <label htmlFor="email" className="text-base font-medium mb-2">E-mail:</label>
                     <input
@@ -58,15 +58,15 @@ const LoginPage = () => {
                 </div>
                 <div className="flex justify-center items-center gap-x-6">
                     <button
-                        onClick={login}
+                        onClick={register}
                         type="submit"
                         className="w-32 py-2 bg-[#4B2E2E] text-white rounded-lg hover:bg-[#3A2323] focus:outline-none focus:ring focus:ring-[#4B2E2E] text-lg"
                     >
-                        Giriş Yap
-                    </button>
-                    <Link href="/pages/registerPage"
-                        className="w-32 py-2 bg-[#4B2E2E] flex justify-center text-white rounded-lg hover:bg-[#3A2323] focus:outline-none focus:ring focus:ring-[#4B2E2E] text-lg">
                         Kayıt Ol
+                    </button>
+                    <Link href="/pages/loginPage"
+                        className="w-32 py-2 bg-[#4B2E2E] flex justify-center text-white rounded-lg hover:bg-[#3A2323] focus:outline-none focus:ring focus:ring-[#4B2E2E] text-lg">
+                        Giriş Yap
                     </Link>
                 </div>
             </form>
@@ -74,4 +74,4 @@ const LoginPage = () => {
     );
 };
 
-export default LoginPage;
+export default RegisterPage;

@@ -1,48 +1,50 @@
-'use client'
-
-import { useState } from 'react';
-
+import Link from "next/link";
+import React from "react";
+import Slider from "./slider";
 import "./globals.css";
-import ContactForm from './components/ContactForm';
 
 export default function Home() {
-  const [data, setData] = useState([]);
-  const [notification, setNotification] = useState("");
-
-  const handleAdd = async ({ name, value, subject, message }) => {
-    try {
-        const res = await fetch('/api/data', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name, value, subject, message }),
-        });
-
-        if (!res.ok) {
-            const errorText = await res.text();
-            console.error("Failed to add data:", errorText);
-            return;
-        }
-
-        const result = await res.json();
-        setData([...data, result]);
-        setNotification("Form başarıyla gönderildi!");
-        setTimeout(() => setNotification(""), 3000);
-    } catch (error) {
-        console.error("Error occurred while adding data:", error);
-    }
-};
-
-
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div>
-        {notification && (
-          <div className="mb-4 p-2 text-green-700 bg-green-100 border border-green-400 rounded">
-            {notification}
-          </div>
-        )}
-        <ContactForm onSubmit={handleAdd} />
+    <div className="h-screen">
+      <div className="flex justify-center items-center gap-x-10">
+        <div className="flex flex-col justify-center items-center gap-y-5">
+          <img
+            src="/elyapimiurunler.jpg"
+            className="w-92 h-52 rounded-lg mt-10"
+            alt=""
+          />
+          <Link
+            href="/"
+            className="text-[#4B2E2E] rounded-lg px-2">
+            El Yapımı Ürünler
+          </Link>
+        </div>
+        <div className="flex flex-col justify-center items-center gap-y-5">
+          <img
+            src="/sanatcilarımız.jpg"
+            className="w-92 h-52 rounded-lg mt-10"
+            alt=""
+          />
+          <Link
+            href="/"
+            className="text-[#4B2E2E] rounded-lg px-2">
+            Sanatçılarımız
+          </Link>
+        </div>
+        <div className="flex flex-col justify-center items-center gap-y-5">
+          <img
+            src="/kulturelbilgiler.jpg"
+            className="w-92 h-52 rounded-lg mt-10"
+            alt=""
+          />
+          <Link
+            href="/"
+            className="text-[#4B2E2E] rounded-lg px-2">
+            Kültürel Bilgiler
+          </Link>
+        </div>
       </div>
+      <Slider />
     </div>
   );
 }
