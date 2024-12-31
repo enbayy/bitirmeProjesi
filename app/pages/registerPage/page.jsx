@@ -10,19 +10,22 @@ import { ToastContainer } from 'react-toastify';
 const RegisterPage = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
 
     const register = async (e) => {
         e.preventDefault();
+        if (password !== confirmPassword) {
+            showErrorToast("Şifreler uyuşmuyor!");
+            return;
+        }
         try {
             const response = await createUserWithEmailAndPassword(auth, email, password);
             const user = response.user;
             if (user) {
                 setEmail("");
                 setPassword("");
+                setConfirmPassword("");
                 showSuccessToast("Kayıt başarılı!");
-                setTimeout(() => {
-                    window.location.href = '/loginPage';
-                }, 2000);
             }
         } catch (error) {
             showErrorToast(error.message);
@@ -45,7 +48,7 @@ const RegisterPage = () => {
                         onChange={(e) => setEmail(e.target.value)}
                     />
                 </div>
-                <div className="flex flex-col mb-8">
+                <div className="flex flex-col mb-6">
                     <label htmlFor="password" className="text-base font-medium mb-2">Şifre:</label>
                     <input
                         id="password"
@@ -54,6 +57,17 @@ const RegisterPage = () => {
                         placeholder="Şifre"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
+                    />
+                </div>
+                <div className="flex flex-col mb-8">
+                    <label htmlFor="confirmPassword" className="text-base font-medium mb-2">Şifreyi Tekrar Girin:</label>
+                    <input
+                        id="confirmPassword"
+                        className="border border-gray-300 bg-[#F4EDE4] rounded-lg p-4 mt-2 focus:outline-none focus:ring focus:ring-[#4B2E2E] text-[#4B2E2E] text-lg"
+                        type="password"
+                        placeholder="Şifreyi Tekrar Girin"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
                     />
                 </div>
                 <div className="flex justify-center items-center gap-x-6">
